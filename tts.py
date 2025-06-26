@@ -1,8 +1,13 @@
 # tts.py
 import azure.cognitiveservices.speech as speechsdk
+from dotenv import load_dotenv
+import os
 
-SPEECH_KEY = "8UL6S50wem1J5l8ORaEfRIeHv23gbfxpczy4iNoMg98dFtpfDxCGJQQJ99BFACGhslBXJ3w3AAAYACOGUUQ4"
-SERVICE_REGION = "centralindia"  # e.g., "eastus"
+load_dotenv()
+
+SPEECH_KEY = os.getenv("AZURE_SPEECH_KEY")
+SERVICE_REGION = os.getenv("AZURE_SERVICE_REGION")
+
 
 def text_to_speech(text, filename="output_audio.wav"):
     print("🔁 Starting text-to-speech...")
